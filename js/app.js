@@ -3,24 +3,26 @@ var app = angular.module('urlShortApp',[])
 app.controller('urlController', ['$scope', function($scope){
 
   $scope.addUrl = function () {
-
+    //alert("Test");
   };
 
   $scope.init =function(){
-    //alert("load table data");
+    var data1 = {
+      url: "http://google.com",
+      shortUrl: "http://g.com"
+    };
+
+    var data2 = {
+      url: "http://youtube.com",
+      shortUrl: "http://y.com"
+    };
+
+    var data3 = {
+      url: "http://facebook.com",
+      shortUrl: "http://f.com"
+    };
+
+    $scope.urlList = [data1, data2, data3];
 
   }
 }]);
-
-app.service('mongoDataService', function(){
-  this.getData = function(){
-    var data = $http({
-      method: "GET",
-      url: "ds137110.mlab.com:37110/urlshort -u govipul -p Dauji@1987"
-    }).then(function successCallBack(response){
-      console.log(response.data);
-    }, function errorCallBack(response){
-      console.log(response);
-    });
-  }
-});

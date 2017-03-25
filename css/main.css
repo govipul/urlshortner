@@ -60,3 +60,8 @@ body {
     text-align: center; }
   .table .row:nth-child(odd) {
     background-color: #C4CDE6; }
+  .table .row:hover {
+    background-color: #243567;
+    color: #FFFFFF; }
+  .table .point {
+    cursor: pointer; }
