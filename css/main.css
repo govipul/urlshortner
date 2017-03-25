@@ -15,32 +15,48 @@ body {
 #enterUrl {
   font-size: 25px;
   border-radius: 5px;
-  width: 700px; }
+  width: 700px;
+  font-family: cursive;
+  color: #1e2c56; }
+
+::-webkit-input-placeholder {
+  font-family: 'Bree Serif',Sansita; }
+
+::-moz-placeholder {
+  font-family: 'Bree Serif',Sansita; }
+
+:-ms-input-placeholder {
+  font-family: 'Bree Serif',Sansita; }
+
+::placeholder {
+  font-family: 'Bree Serif',Sansita; }
 
 .button {
   color: #FFFFFF;
   background-color: #243567;
-  border: solid #000000 1px;
   border-radius: 5px;
   padding: 5px;
   width: 150px;
   margin: 0 auto; }
 
+.button:hover {
+  border: solid #FFFFFF 1px;
+  box-shadow: 4px 4px 3px #888888; }
+
 #table-data {
   margin: 0 auto; }
 
 .table {
-  border: dotted #000000 1px;
   margin: 0 auto;
   width: 50%; }
+  .table td {
+    border-bottom: 1px dotted #0C1122;
+    padding: 2px; }
   .table .header {
     font-family: monospace fantasy;
-    background-color: #121a33;
+    background-color: #121A33;
     color: #FFFFFF; }
-  .table td {
-    border-bottom: .5px solid black;
-    padding: 2px; }
   .table .row {
     text-align: center; }
   .table .row:nth-child(odd) {
-    background-color: #c4cde6; }
+    background-color: #C4CDE6; }
