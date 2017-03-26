@@ -10,7 +10,7 @@
   <body ng-app="urlShortApp" ng-controller="urlController" ng-init="init()">
       <div id="add-url">
         <div class="add-form">
-          <input type="text" id="enterUrl" placeholder="Please Enter URL..." ng-model="fullUrl"></input>
+          <input type="text" id="enterUrl" placeholder="Please Enter URL..." ng-model="fullUrl" required></input>
           <br/>
           <br/>
           <div id="submit" class="button" ng-click="addUrl()">Get URL</div>
