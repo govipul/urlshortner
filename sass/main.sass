@@ -68,12 +68,10 @@ body
   padding-top: 20px
 
   .search-form
-    display: flex
-    flex-direction: row
     align-items: baseline
     justify-content: space-between
-    .flex-item
-      flex-grow: 1
-      width: 50%
-      flex-shrink: 1
-      margin: 0.5%
+
+#enterShortUrl
+  @extend #enterUrl
+  border: dotted 1px #000000
+  background-color: #D3D3D3

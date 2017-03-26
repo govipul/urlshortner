@@ -17,6 +17,7 @@
         </div>
       </div>
       <br/>
+      <hr>
       <br/>
       <div id="table-data">
           <table class="table">
@@ -28,15 +29,20 @@
               <tr class="row" ng-repeat="urlData in urlList">
                 <td>{{$index + 1}}</td>
                 <td>{{urlData.url}}</td>
-                <td><a ng-click=fillLink(urlData)>{{urlData.shortUrl}}</a></td>
+                <td>{{urlData.shortUrl}} &nbsp; &nbsp;<a ng-click=fillLink(urlData) class="point"><i class="fa fa-paper-plane-o"></i></a></td>
               </tr>
           </table>
+          <h3><i class="fa fa-paper-plane-o"></i> : Click on icon to copy the minified url</h3>
       </div>
+      <br>
+      <hr>
+      <br>
       <div id="search-url">
         <div class="search-form">
-          <input type="text" id="enterUrl" placeholder="Enter Minified URL..." readonly ng-model="shortUrl" class="flex-item"></input>
-          <div id="submit" class="button" ng-click="searchUrl()" class="flex-item">Enter</div>
-
+          <input type="text" id="enterShortUrl" placeholder="Minified URL..." readonly ng-model="shortUrl" class="flex-item"></input>
+          <br>
+          <br>
+          <div id="submit" class="button flex-item" ng-click="searchUrl()">Enter</div>
         </div>
       </div>
 
