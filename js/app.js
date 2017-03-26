@@ -1,28 +1,54 @@
 var app = angular.module('urlShortApp',[])
 
-app.controller('urlController', ['$scope', function($scope){
 
-  $scope.addUrl = function () {
-    //alert("Test");
-  };
+app.controller('urlController', ['$scope', '$http', function($scope, $http){
 
-  $scope.init =function(){
-    var data1 = {
-      url: "http://google.com",
-      shortUrl: "http://g.com"
+    $scope.loading = false;
+    $scope.init = function(){
+      getData();
     };
 
-    var data2 = {
-      url: "http://youtube.com",
-      shortUrl: "http://y.com"
+
+    $scope.addUrl = function(){
+      putData($scope.fullUrl)
+      clear();
     };
 
-    var data3 = {
-      url: "http://facebook.com",
-      shortUrl: "http://f.com"
+    var clear = function(){
+      $scope.fullUrl = "";
+    }
+
+    var putData = function(fullUrl) {
+      data = {
+        "url": fullUrl
+      };
+
+      $http({
+        method: "POST",
+        url: "/addUrlData",
+        data: data
+      }).then(function successCallBack(response){
+          getData();
+      }, function errorCallBack(response){
+          alert("It's our mistake, Please refresh page again");
+          console.error(response);
+      });
+
+      //.post(, data);
     };
 
-    $scope.urlList = [data1, data2, data3];
+    var getData = function() {
+      return $http ({
+        method: "GET",
+        url: "/getUrlLists"
+      }).then(function successCallBack(response){
+          $scope.urlList = response.data;
+          return response.data;
+      }, function errorCallBack(response){
+          alert("It's our mistake, Please refresh page again");
+          console.error(response);
+      });
+    }
 
-  }
+
 }]);
