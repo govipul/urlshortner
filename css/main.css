@@ -8,7 +8,7 @@ body {
   z-index: 0;
   position: relative; }
 
-.search-form {
+.add-form {
   padding-top: 140px;
   margin: 0 auto; }
 
@@ -65,3 +65,28 @@ body {
     color: #FFFFFF; }
   .table .point {
     cursor: pointer; }
+
+#search-url {
+  padding-top: 20px; }
+  #search-url .search-form {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    #search-url .search-form .flex-item {
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      width: 50%;
+      -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+      flex-shrink: 1;
+      margin: 0.5%; }

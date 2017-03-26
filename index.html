@@ -9,7 +9,7 @@
   </head>
   <body ng-app="urlShortApp" ng-controller="urlController" ng-init="init()">
       <div id="add-url">
-        <div class="search-form">
+        <div class="add-form">
           <input type="text" id="enterUrl" placeholder="Please Enter URL..." ng-model="fullUrl"></input>
           <br/>
           <br/>
@@ -17,27 +17,31 @@
         </div>
       </div>
       <br/>
-      <div id="spinner" style="font-size: 30px" ng-show={{loading}}>
-        <i class="fa fa-refresh fa-spin fa-3x fa-fw" aria-hidden="true"></i>
-        <span class="sr-only">Loading...</span>
-      </div>
       <br/>
-
       <div id="table-data">
           <table class="table">
               <tr class="header">
                 <th>#</th>
                 <th>Url</th>
                 <th>Short Url</th>
-                <th>&nbsp;</th>
               </tr>
               <tr class="row" ng-repeat="urlData in urlList">
                 <td>{{$index + 1}}</td>
                 <td>{{urlData.url}}</td>
-                <td>{{urlData.shortUrl}}</td>
-                <td class="point"><a href="{{urlData.url}}"  target="_blank"><i class="fa fa-external-link-square" aria-hidden="true"></i></i></a></td>
+                <td><a ng-click=fillLink(urlData)>{{urlData.shortUrl}}</a></td>
               </tr>
           </table>
+      </div>
+      <div id="search-url">
+        <div class="search-form">
+          <input type="text" id="enterUrl" placeholder="Enter Minified URL..." readonly ng-model="shortUrl" class="flex-item"></input>
+          <div id="submit" class="button" ng-click="searchUrl()" class="flex-item">Enter</div>
+
+        </div>
+      </div>
+
+      <div id="search-url">
+        <p>HTML: {{actualUrl}}</p>
       </div>
   </body>
   <script src="node_modules\angular\angular.min.js"></script>

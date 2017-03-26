@@ -1,18 +1,40 @@
 var app = angular.module('urlShortApp',[])
 
 
-app.controller('urlController', ['$scope', '$http', function($scope, $http){
+app.controller('urlController', ['$scope', '$http', '$window', function($scope, $http, $window){
 
     $scope.loading = false;
     $scope.init = function(){
       getData();
     };
 
+    $scope.searchUrl = function(){
+        var url = $scope.shortUrl;
+        var hashKey = url.slice(7, url.length);
+        getActualUrl(hashKey);
+
+    }
 
     $scope.addUrl = function(){
       putData($scope.fullUrl)
       clear();
     };
+
+    $scope.fillLink = function(data){
+      $scope.shortUrl = data.shortUrl;
+      $scope.realUrl = data.url;
+    }
+
+    var getActualUrl = function(key){
+        return $http({
+          method: "GET",
+          url: "/getUrl/"+key
+        }).then(function successCallBack(response){
+            $scope.actualUrl = response.data.url;
+        }, function errorCallBack(response){
+            alert("Please check for key");
+        });
+    }
 
     var clear = function(){
       $scope.fullUrl = "";
@@ -22,7 +44,6 @@ app.controller('urlController', ['$scope', '$http', function($scope, $http){
       data = {
         "url": fullUrl
       };
-
       $http({
         method: "POST",
         url: "/addUrlData",
