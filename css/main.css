@@ -79,3 +79,9 @@ body {
 #enterShortUrl {
   border: dotted 1px #000000;
   background-color: #D3D3D3; }
+
+.information {
+  background-color: #243567;
+  color: #FFFFFF; }
+  .information .container {
+    text-align: left; }

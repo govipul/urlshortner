@@ -48,7 +48,54 @@
           <p>URL: {{actualUrl}}</p>
         </div>
       </div>
-
+      <br>
+      <hr>
+      <br>
+      <div class="information">
+        <h1>Challenges</h1>
+        <div class="container">
+          <h2>Bottelnecks</h2>
+          <ul>
+            <li><b>Single Server:</b>
+              <div>
+                <p>
+                  Apparently when system system scale to its limit, single machine will not be capable to store all the machines. So we need to scale to use multiple instances and server.
+                  <u>SOLUTION</u>:
+                  The problem can be solved with the help of <u>Load Balancer</u>, which will help to handle the multiple request and prevent the servers from overloading,
+                  along with this load balancer will provide us with the static content caching.
+                </p>
+              </div>
+            </li>
+            <li><b>Concurrency</b>
+              <div>
+                  <p>
+                    There can be multiple users inserting the same URL or editing the same alias at the same time.
+                    <br><u>SOLUTION</u>:
+                    With a multiple machine this can be solved with the help by creating the <u>Lookup</u> system.
+                  </p>
+              </div>
+            </li>
+            <li><b>Replication/Recovery/Backup</b>
+              <div>
+                <p>
+                   Data stores can crash for various random reasons.
+                   <br><u>SOLUTION</u>:
+                   Is having multiple replicas for each database.
+                </p>
+              </div>
+            </li>
+            <li><b>Response Time</b>
+              <div>
+                <p>
+                   As the data increases, we need to keep the response time.
+                   <br><u>SOLUTION</u>:
+                   The solution is to add caching system with the help of system like Redis. 
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
   </body>
   <script src="node_modules\angular\angular.min.js"></script>
   <script src="js/app.js"></script>

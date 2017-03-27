@@ -53,7 +53,7 @@ var isUniqueValue = function(keyValue){
 }
 
 var getHashValue = function () {
-  var number = Math.floor(Math.random()*1000);
+  var number = Math.floor(Math.random()*10000000);
   var char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   var hashvalue = "";
   while(number > 0) {
