@@ -16,8 +16,15 @@ app.controller('urlController', ['$scope', '$http', '$window', function($scope, 
     }
 
     $scope.addUrl = function(){
-      putData($scope.fullUrl)
-      clear();
+      var data = $scope.fullUrl;
+      console.log(data);
+      if(data === undefined || data.trim() == "" ){
+        alert("Please enter valid URL");
+        return;
+      } else {
+        putData(data);
+        clear();
+      }
     };
 
     $scope.fillLink = function(data){
