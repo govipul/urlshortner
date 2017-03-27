@@ -1,7 +1,6 @@
 <!DOCTYPE>
 <html>
   <head>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
       <script src="https://use.fontawesome.com/6c720fbdb3.js"></script>
       <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
@@ -9,46 +8,94 @@
   </head>
   <body ng-app="urlShortApp" ng-controller="urlController" ng-init="init()">
       <div id="add-url">
-        <div class="search-form">
-          <input type="text" id="enterUrl" placeholder="Please Enter URL..." ng-model="fullUrl"></input>
+        <div class="add-form">
+          <input type="text" id="enterUrl" placeholder="Please Enter URL..." ng-model="fullUrl" required></input>
           <br/>
           <br/>
           <div id="submit" class="button" ng-click="addUrl()">Get URL</div>
         </div>
       </div>
       <br/>
-      <br/>
+      <hr>
       <br/>
       <div id="table-data">
           <table class="table">
               <tr class="header">
+                <th>#</th>
                 <th>Url</th>
                 <th>Short Url</th>
-                <th>&nbsp;</th>
               </tr>
-              <tr class="row">
-                <td>Google.com</td>
-                <td>g.com</td>
-                <td>open</td>
+              <tr class="row" ng-repeat="urlData in urlList">
+                <td>{{$index + 1}}</td>
+                <td>{{urlData.url}}</td>
+                <td>{{urlData.shortUrl}} &nbsp; &nbsp;<a ng-click=fillLink(urlData) class="point"><i class="fa fa-paper-plane-o"></i></a></td>
               </tr>
-              <tr class="row">
-                <td>Google.com</td>
-                <td>g.com</td>
-                <td>open</td>
-              </tr>
-              <tr class="row">
-                <td>Google.com</td>
-                <td>g.com</td>
-                <td>open</td>
-              </tr>
-              <tr class="row">
-                <td>Google.com</td>
-                <td>g.com</td>
-                <td>open</td>
-              </tr>
-
           </table>
+          <h3><i class="fa fa-paper-plane-o"></i> : Click on icon to copy the minified url</h3>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <div id="search-url">
+        <div class="search-form">
+          <input type="text" id="enterShortUrl" placeholder="Minified URL..." readonly ng-model="shortUrl" class="flex-item"></input>
+          <br>
+          <br>
+          <div id="submit" class="button flex-item" ng-click="searchUrl()">Enter</div>
+        </div>
+        <div id="search-url">
+          <p>URL: {{actualUrl}}</p>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <div class="information">
+        <h1>Challenges</h1>
+        <div class="container">
+          <h2><u>Bottelnecks &amp; Solutions</u></h2>
+          <ul>
+            <li><b>Single Server:</b>
+              <div>
+                <p>
+                  Apparently when system system scale to its limit, single machine will not be capable to store all the machines. So we need to scale to use multiple instances and server.
+                  <u>SOLUTION</u>:
+                  The problem can be solved with the help of <u>Load Balancer</u>, which will help to handle the multiple request and prevent the servers from overloading,
+                  along with this load balancer will provide us with the static content caching.
+                </p>
+              </div>
+            </li>
+            <li><b>Concurrency</b>
+              <div>
+                  <p>
+                    There can be multiple users inserting the same URL or editing the same alias at the same time.
+                    <br><u>SOLUTION</u>:
+                    With a multiple machine this can be solved with the help by creating the <u>Lookup</u> system.
+                  </p>
+              </div>
+            </li>
+            <li><b>Replication/Recovery/Backup</b>
+              <div>
+                <p>
+                   Data stores can crash for various random reasons.
+                   <br><u>SOLUTION</u>:
+                   Is having multiple replicas for each database.
+                </p>
+              </div>
+            </li>
+            <li><b>Response Time</b>
+              <div>
+                <p>
+                   As the data increases in database, we need to improve the response time.
+                   <br><u>SOLUTION</u>:
+                   The solution is to add database caching system like Redis which help system to provide the response faster.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
   </body>
+  <script src="node_modules\angular\angular.min.js"></script>
   <script src="js/app.js"></script>
 </html>

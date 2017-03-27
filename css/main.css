@@ -8,11 +8,11 @@ body {
   z-index: 0;
   position: relative; }
 
-.search-form {
+.add-form {
   padding-top: 140px;
   margin: 0 auto; }
 
-#enterUrl {
+#enterUrl, #enterShortUrl {
   font-size: 25px;
   border-radius: 5px;
   width: 700px;
@@ -60,3 +60,28 @@ body {
     text-align: center; }
   .table .row:nth-child(odd) {
     background-color: #C4CDE6; }
+  .table .row:hover {
+    background-color: #243567;
+    color: #FFFFFF; }
+  .table .point {
+    cursor: pointer; }
+
+#search-url {
+  padding-top: 20px; }
+  #search-url .search-form {
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+
+#enterShortUrl {
+  border: dotted 1px #000000;
+  background-color: #D3D3D3; }
+
+.information {
+  background-color: #243567;
+  color: #FFFFFF; }
+  .information .container {
+    text-align: left; }

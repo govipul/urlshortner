@@ -8,7 +8,7 @@ body
   z-index: 0
   position: relative
 
-.search-form
+.add-form
     padding-top: 140px
     margin: 0 auto
 
@@ -40,9 +40,11 @@ body
   margin: 0 auto
   width: 50%
 
+
   td
     border-bottom: 1px dotted #0C1122
     padding: 2px
+
 
   .header
     font-family: monospace fantasy
@@ -54,3 +56,29 @@ body
 
   .row:nth-child(odd)
     background-color: #C4CDE6
+
+  .row:hover
+    background-color: #243567
+    color: #FFFFFF
+
+  .point
+    cursor: pointer
+
+#search-url
+  padding-top: 20px
+
+  .search-form
+    align-items: baseline
+    justify-content: space-between
+
+#enterShortUrl
+  @extend #enterUrl
+  border: dotted 1px #000000
+  background-color: #D3D3D3
+
+
+.information
+  background-color: #243567
+  color: #FFFFFF
+  .container
+    text-align: left
